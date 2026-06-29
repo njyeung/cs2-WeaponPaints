@@ -315,8 +315,11 @@ public partial class WeaponPaints
 				playerKnives[team] = knifeKey;
 			}
 			
-			if (_gBCommandsAllowed && (LifeState_t)player.LifeState == LifeState_t.LIFE_ALIVE)
+			if (_gBCommandsAllowed && (LifeState_t)player.LifeState == LifeState_t.LIFE_ALIVE) {
+				GiveKnifeToPlayer(player);
 				RefreshWeapons(player);
+			}
+				
 
 			if (WeaponSync != null)
 				_ = Task.Run(async () => await WeaponSync.SyncKnifeToDatabase(playerInfo, knifeKey, teamsToCheck));
