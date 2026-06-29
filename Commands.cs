@@ -40,6 +40,7 @@ public partial class WeaponPaints
 					_ = Task.Run(async () => await WeaponSync.GetPlayerData(playerInfo));
 
 					GivePlayerGloves(player);
+					GiveKnifeToPlayer(player);
 					RefreshWeapons(player);
 					GivePlayerAgent(player);
 					GivePlayerMusicKit(player);
@@ -224,6 +225,7 @@ public partial class WeaponPaints
 				}
 
 				GivePlayerGloves(targetPlayer);
+				GiveKnifeToPlayer(targetPlayer);
 				RefreshWeapons(targetPlayer);
 				GivePlayerAgent(targetPlayer);
 				GivePlayerMusicKit(targetPlayer);
