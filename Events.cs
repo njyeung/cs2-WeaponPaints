@@ -291,11 +291,14 @@ namespace WeaponPaints
 			if (!HasChangedKnife(player, out var _) || !HasChangedPaint(player, weaponDefIndex, out var _))
 				return HookResult.Continue;
 			
-			if (player is { Connected: PlayerConnectedState.Connected, PawnIsAlive: true, PlayerPawn.IsValid: true })
-			{
-				GiveOnItemPickup(player);
-			}
-		
+			// TEST: don't re-skin a picked-up knife to the picker's loadout.
+			// This makes a dropped knife keep the dropper's skin/model on pickup,
+			// matching gun behaviour.
+			// if (player is { Connected: PlayerConnectedState.Connected, PawnIsAlive: true, PlayerPawn.IsValid: true })
+			// {
+			// 	GiveOnItemPickup(player);
+			// }
+
 			return HookResult.Continue;
 		}
 
